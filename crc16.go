@@ -72,6 +72,14 @@ func MakeTable(params Params) *Table {
 	return table
 }
 
+// MakeTableWithData returns the Table constructed from the specified algorithm.
+func MakeTableWithData(params Params, data [256]uint16) *Table {
+	table := new(Table)
+	table.params = params
+	table.data = data
+	return table
+}
+
 // Init returns the initial value for CRC register corresponding to the specified algorithm.
 func Init(table *Table) uint16 {
 	return table.params.Init
